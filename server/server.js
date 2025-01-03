@@ -48,9 +48,12 @@ app.get("/register", async (req, res) => {
 
 app.post("/users/login", async (req, res) => {
     try {
-        const users = await fs.readFile(`server/data/users.json`, "utf8")||[];
         const {email, password} = req.body;
+        const data = await fs.readFile(`server/data/users.json`, "utf8");
+
+        const users = JSON.parse(data) || [];
         const user = users.filter(user => user.email === email);
+
         if (user !== "") {
             if (user.password == password) {
                 res.status(200).send("Success!");
@@ -60,6 +63,7 @@ app.post("/users/login", async (req, res) => {
         } else {
             res.status(404).send("User was not found!");
         }
+
         console.log(user);
     } catch (error) {
         console.log(error);
@@ -69,14 +73,19 @@ app.post("/users/login", async (req, res) => {
 
 app.post("/users/signup", async (req, res) => {
     try {
-        const users = await fs.readFile(`server/data/users.json`, "utf8")||[];
-        const {email, password} = req.body;
+        const { email, password } = req.body;
+        const data = await fs.readFile(`server/data/users.json`, "utf8");
+
+        const users = JSON.parse(data) || [];
         const user = users.filter(user => user.email === email);
+
         if (user === "") {
-            await fs.appendFile(`server/data/users.json`, {email, password});
+            users.push({ email, password });
         } else {
             res.status(403).send("User is already taken!");
         }
+        
+        await fs.writeFile("server/data/users.json", JSON.stringify(users, null, 2));
         console.log(user);
     } catch (error) {
         console.log(error);
