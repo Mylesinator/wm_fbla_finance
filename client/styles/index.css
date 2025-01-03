@@ -23,6 +23,19 @@ nav {
     width: 100%;
 }
 
+.col {
+    width: 33%;
+}
+
+.brand-container {
+    display: flex;
+    /* justify-self: start; */
+}
+
+.link-button {
+    cursor: pointer;
+}
+
 footer {
     display: flex;
     justify-self: end;
