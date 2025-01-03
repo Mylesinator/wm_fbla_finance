@@ -10,7 +10,7 @@ app.use(express.static(clientPath));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-async function sendCoolFile(file, title) {
+async function getFormattedPage(file, title) {
     try {
         const indexText = await fs.readFile("client/pages/index.html", "utf8");
         const newContent = await fs.readFile(`client/pages/${file}`, "utf8");
@@ -29,13 +29,19 @@ async function sendCoolFile(file, title) {
 }
 
 app.get("/", async (req, res) => {
-    const page = await sendCoolFile("home.html", "Home");
+    const page = await getFormattedPage("home.html", "Home");
 
     res.send(page);
 });
 
 app.get("/login", async (req, res) => {
-    const page = await sendCoolFile("login.html", "Sign In");
+    const page = await getFormattedPage("login.html", "Sign In");
+
+    res.send(page);
+});
+
+app.get("/register", async (req, res) => {
+    const page = await getFormattedPage("register.html", "Register");
 
     res.send(page);
 });
