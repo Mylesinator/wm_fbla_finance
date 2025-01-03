@@ -49,13 +49,13 @@ app.get("/register", async (req, res) => {
 app.post("/users/login", async (req, res) => {
     try {
         const {email, password} = req.body;
-        const data = await fs.readFile(`server/data/users.json`, "utf8");
+        const data = await fs.readFile(`data/users.json`, "utf8");
 
         const users = JSON.parse(data) || [];
         const user = users.filter(user => user.email === email);
 
         if (user !== "") {
-            if (user.password == password) {
+            if (user[0].password === password) {
                 res.status(200).send("Success!");
             } else {
                 res.status(401).send("Password is incorrect!");
