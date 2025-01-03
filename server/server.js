@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs").promises;
 const { JSDOM } = require("jsdom");
+const { randomUUID } = require("crypto");
 
 const clientPath = path.join(__dirname, "..", "client");
 
@@ -51,12 +52,16 @@ app.post("/users/login", async (req, res) => {
         const {email, password} = req.body;
         const data = await fs.readFile(`data/users.json`, "utf8");
 
-        const users = JSON.parse(data) || [];
+        let users = JSON.parse(data) || [];
         const user = users.filter(user => user.email === email);
 
         if (user !== "") {
             if (user[0].password === password) {
-                res.status(200).send("Success!");
+                user.id = randomUUID();
+                let index = users.findIndex(item => item.email === email);
+                users[index] = user;
+                await fs.writeFile("data/users.json", JSON.stringify(users, null, 4));
+                res.status(200).send(JSON.stringify(user.id));
             } else {
                 res.status(401).send("Password is incorrect!");
             }
