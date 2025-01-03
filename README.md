@@ -1,2 +1,4 @@
 # wm_fbla_finance
-for fbla
+
+cd into /server and run `npm i`
+then `npm run dev` to start server
