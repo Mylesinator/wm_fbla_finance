@@ -42,12 +42,39 @@ app.get("/login", async (req, res) => {
 
 app.post("/users/login", async (req, res) => {
     try {
-        const users = await fs.readFile(`data/users.json`, "utf8");
-        const body = req.body;
-        console.log(users);
-        console.log(body);
+        const users = await fs.readFile(`server/data/users.json`, "utf8")||[];
+        const {email, password} = req.body;
+        const user = users.filter(user => user.email === email);
+        if (user !== "") {
+            if (user.password == password) {
+                res.status(200).send("Success!");
+            } else {
+                res.status(401).send("Password is incorrect!");
+            }
+        } else {
+            res.status(404).send("User was not found!");
+        }
+        console.log(user);
     } catch (error) {
         console.log(error);
+        res.status(500).send(error.message);
+    }
+});
+
+app.post("/users/signup", async (req, res) => {
+    try {
+        const users = await fs.readFile(`server/data/users.json`, "utf8")||[];
+        const {email, password} = req.body;
+        const user = users.filter(user => user.email === email);
+        if (user === "") {
+            await fs.appendFile(`server/data/users.json`, {email, password});
+        } else {
+            res.status(403).send("User is already taken!");
+        }
+        console.log(user);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error.message);
     }
 });
 
