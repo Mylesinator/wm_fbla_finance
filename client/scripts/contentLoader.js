@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     linkBtns.forEach(btn => {
         btn.addEventListener("click", async () => {
-            main.innerHTML = await getPageHtml(`pages${btn.getAttribute("location")}.html`);
+            main.innerHTML = await getPageHtml(`pages/${btn.getAttribute("location")}.html`);
+            document.title = btn.getAttribute("title");
         });
     });
 });
