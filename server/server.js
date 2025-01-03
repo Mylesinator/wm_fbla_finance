@@ -12,8 +12,8 @@ app.use(express.json());
 
 async function getFormattedPage(file, title) {
     try {
-        const indexText = await fs.readFile("client/pages/index.html", "utf8");
-        const newContent = await fs.readFile(`client/pages/${file}`, "utf8");
+        const indexText = await fs.readFile("../client/pages/index.html", "utf8");
+        const newContent = await fs.readFile(`../client/pages/${file}`, "utf8");
 
         const dom = new JSDOM();
         const parser = new dom.window.DOMParser();
@@ -74,19 +74,19 @@ app.post("/users/login", async (req, res) => {
 app.post("/users/signup", async (req, res) => {
     try {
         const { email, password } = req.body;
-        const data = await fs.readFile(`server/data/users.json`, "utf8");
+        const data = await fs.readFile(`data/users.json`, "utf8");
 
-        const users = JSON.parse(data) || [];
-        const user = users.filter(user => user.email === email);
+        const users = JSON.parse(data);
+        const user = users.filter(u => u.email === email);
 
-        if (user === "") {
+        if (user.length === 0) {
             users.push({ email, password });
+            await fs.writeFile("data/users.json", JSON.stringify(users, null, 4));
         } else {
-            res.status(403).send("User is already taken!");
+           return res.status(403).send("User is already taken!");
         }
-        
-        await fs.writeFile("server/data/users.json", JSON.stringify(users, null, 2));
-        console.log(user);
+
+        return res.status(201).send("User account registered.");
     } catch (error) {
         console.log(error);
         res.status(500).send(error.message);
