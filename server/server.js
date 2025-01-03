@@ -40,8 +40,15 @@ app.get("/login", async (req, res) => {
     res.send(page);
 });
 
-app.post("/users/login", (req, res) => {
-    console.log(req.body);
+app.post("/users/login", async (req, res) => {
+    try {
+        const users = await fs.readFile(`data/users.json`, "utf8");
+        const body = req.body;
+        console.log(users);
+        console.log(body);
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 const PORT = 3000
