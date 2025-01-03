@@ -13,11 +13,6 @@ app.get("/", (req, res) => {
     res.sendFile("pages/index.html", { root: clientPath });
 });
 
-//styles
-app.get("/style.css", (req, res) => {
-    res.sendFile("../style.css", { root: clientPath });
-});
-
 const PORT = 3000
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}/`);
