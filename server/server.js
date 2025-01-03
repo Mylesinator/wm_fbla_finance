@@ -40,6 +40,10 @@ app.get("/login", async (req, res) => {
     res.send(page);
 });
 
+app.post("/users/login", (req, res) => {
+    console.log(req.body);
+});
+
 const PORT = 3000
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}/`);
