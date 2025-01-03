@@ -8,6 +8,18 @@ function form(element, method) {
                 method: method,
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Success:", data);
+            })
+            .catch(error => {
+                alert(`Request failed: ${error.message}`);
             });
         });
     } catch (error) {
