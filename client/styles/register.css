@@ -1,8 +1,8 @@
-#login-header {
+#signup-header {
     padding-bottom: 1.5rem;
 }
 
-#login-id {
+#signup-id {
     background-color: lightgray;
     display: flex;
     justify-content: center;
