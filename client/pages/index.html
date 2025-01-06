@@ -12,12 +12,34 @@
 <body>
     <nav>
         <div class="brand-container">
-            <img src="assets/icon.png" alt="logo or sum idrk" height="50" width="50">
+            <a href="/">
+                <img src="assets/icon.png" alt="logo or sum idrk" height="50" width="50">
+            </a>
+
+            <a href="/">Home</a>
         </div>
 
-        <a href="/">Home</a>
-        <a href="/login">Sign in</a>
-        <a href="/register">Register</a>
+        <div class="links-container">
+            <a href="/finances" id="finances-link" class="hidden">Finances</a>
+            <a href="/">About Us</a>
+            <a href="/">FAQ</a>
+        </div>
+
+        <div class="user-display">
+            <div id="user-links">
+                <a href="/login">Sign in</a>
+                |
+                <a href="/register">Register</a>
+            </div>
+
+            <div id="user-info" class="hidden">
+                <a href="/account" id="name-display">Selym</a>
+                
+                <a href="/account">
+                    <img src="assets/user_icon_white.svg" alt="account icon">
+                </a>
+            </div>
+        </div>
     </nav>
 
     <main></main>

@@ -57,7 +57,6 @@ app.post("/users/login", async (req, res) => {
 
         if (index !== -1) {
             const user = users[index];
-            console.log(user);
 
             if (user.password === password) {
                 users[index] = { ...users[index], id: randomUUID() };
@@ -78,14 +77,14 @@ app.post("/users/login", async (req, res) => {
 
 app.post("/users/signup", async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { email, username, password } = req.body;
         const data = await fs.readFile(`data/users.json`, "utf8");
 
         const users = JSON.parse(data);
-        const user = users.filter(u => u.email === email);
+        const user = users.find(u => u.email === email);
 
-        if (user.length === 0) {
-            users.push({ email, password });
+        if (!user) {
+            users.push({ email, username, password });
             await fs.writeFile("data/users.json", JSON.stringify(users, null, 4));
         } else {
            return res.status(403).send("User is already taken!");
@@ -95,6 +94,27 @@ app.post("/users/signup", async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).send(error.message);
+    }
+});
+
+app.get("/users/auth-user/:token", async (req, res) => {
+    try {
+        const { token } = req.params;
+
+        const data = await fs.readFile("data/users.json", "utf8");
+        const users = JSON.parse(data);
+
+        const user = users.find(user => user.id === token);
+
+        if (user) {
+            delete user.password;
+
+            return res.status(200).send(user);
+        } else {
+            return res.status(404);
+        }
+    } catch (error) {
+        console.error(error);
     }
 });
 
