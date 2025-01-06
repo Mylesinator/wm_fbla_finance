@@ -60,12 +60,13 @@ app.post("/users/login", async (req, res) => {
 
         let users = JSON.parse(data);
         let index = users.findIndex(item => item.email === email);
-        const user = users[index];
 
-        if (user != null) {
-            if (user[0].password === password) {
+        if (index !== -1) {
+            const user = users[index];
+            console.log(user);
 
-                users[index] = { ...users[index], id: randomUUID() }
+            if (user.password === password) {
+                users[index] = { ...users[index], id: randomUUID() };
 
                 await fs.writeFile("data/users.json", JSON.stringify(users, null, 4));
                 res.status(200).send(users[index].id);
@@ -75,8 +76,6 @@ app.post("/users/login", async (req, res) => {
         } else {
             res.status(404).send("User was not found!");
         }
-
-        console.log(user);
     } catch (error) {
         console.log(error);
         res.status(500).send(error.message);
@@ -105,7 +104,7 @@ app.post("/users/signup", async (req, res) => {
     }
 });
 
-const PORT = 3000
+const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}/`);
 });
