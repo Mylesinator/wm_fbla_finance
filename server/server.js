@@ -53,11 +53,11 @@ app.post("/users/login", async (req, res) => {
         const data = await fs.readFile(`data/users.json`, "utf8");
 
         let users = JSON.parse(data);
-        const user = users.filter(user => user.email === email);
+        let index = users.findIndex(item => item.email === email);
+        const user = users[index];
 
-        if (user.length > 0) {
+        if (user != null) {
             if (user[0].password === password) {
-                let index = users.findIndex(item => item.email === email);
 
                 users[index] = { ...users[index], id: randomUUID() }
 
