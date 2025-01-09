@@ -3,19 +3,32 @@ function idToCtx(id) {
     return canvas.getContext('2d');
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+function sum(array) {
+    return array.reduce((a,b)=>{return a+b}, 0);
+}
 
-    let data = {
-        labels: ['Savings', 'Investments', 'Cash'],
+function makeChartData(arg1) {
+    let amount = arg1.map(i=>i.amount_usd);
+    let category = arg1.map(i=>i.category);
+    return {
+        labels: category,
         datasets: [{
-            data: [50, 30, 20],
-            backgroundColor: ['#4caf50', '#2196f3', '#ff9800'],
+            data: amount,
         }]
     }
+}
 
-    const options = {
-        responsive: false,
-    }
+document.addEventListener("DOMContentLoaded", async () => {
+
+    let request = await fetch(`/users/auth-user/${localStorage.auth}`);
+    let request_json = await request.json();
+    let finance_account = request_json.finance_account;
+    let expenses = finance_account.expenses;
+    let income = finance_account.income_sources;
+    console.log(finance_account);
+    // let total = 
+
+    let data = makeChartData(expenses);
     
     new Chart(idToCtx('accountBalanceChart'), {
         type: 'doughnut',
