@@ -28,9 +28,10 @@ async function renderUserElements() {
 
         try {
             const response = await fetch(`/users/auth-user/${auth}`);
-
+            
             if (response.ok) {
                 const user = await response.json();
+                sessionStorage.setItem('username', user.username);
                 
                 userLinks.classList.add("hidden");
                 financesLink.classList.remove("hidden");

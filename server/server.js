@@ -53,6 +53,12 @@ app.get("/finance", async (req, res) => {
     res.send(page);
 });
 
+app.get("/account", async (req, res) => {
+    const page = await getFormattedPage("account.html", "Account");
+
+    res.send(page);
+});
+
 app.post("/users/login", async (req, res) => {
     try {
         const { email, password } = req.body;
