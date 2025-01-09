@@ -71,10 +71,10 @@ app.post("/users/login", async (req, res) => {
             const user = users[index];
 
             if (user.password === password) {
-                users[index] = { ...users[index], id: randomUUID() };
+                users[index] = { session_id: randomUUID(), ...users[index] };
 
                 await fs.writeFile("data/users.json", JSON.stringify(users, null, 4));
-                res.status(200).send(users[index].id);
+                res.status(200).send(users[index].session_id);
             } else {
                 res.status(401).send("Password is incorrect!");
             }
@@ -95,8 +95,14 @@ app.post("/users/signup", async (req, res) => {
         const users = JSON.parse(data);
         const user = users.find(u => u.email === email);
 
+        const default_account = {
+            "balance_usd": 0,
+            "income_sources": [],
+            "expenses": []
+        }
+
         if (!user) {
-            users.push({ email, username, password });
+            users.push({ id: randomUUID(), email, username, password, finance_account: default_account });
             await fs.writeFile("data/users.json", JSON.stringify(users, null, 4));
         } else {
            return res.status(403).send("User is already taken!");
@@ -116,7 +122,7 @@ app.get("/users/auth-user/:token", async (req, res) => {
         const data = await fs.readFile("data/users.json", "utf8");
         const users = JSON.parse(data);
 
-        const user = users.find(user => user.id === token);
+        const user = users.find(user => user.session_id === token);
 
         if (user) {
             delete user.password;
@@ -127,6 +133,36 @@ app.get("/users/auth-user/:token", async (req, res) => {
         }
     } catch (error) {
         console.error(error);
+    }
+});
+
+app.post("/users/deposit/:token", async (req, res) => {
+    try {
+        const { token } = req.params;
+        const { amount } = req.body;
+
+        const data = await fs.readFile("data/users.json");
+        const users = JSON.parse(data);
+        const userIndex = users.findIndex(u => u.session_id === token);
+        const user = users[userIndex];
+
+        if (user) {
+            const account = user.finance_account;
+
+            const date = Date.now();
+            const incomeSource = {
+                "date_unix": date,
+                "amount_usd": amount
+            }
+            
+            account.balance_usd += amount;
+            account.income_sources.push(incomeSource);
+
+            await fs.writeFile("data/users.json", JSON.stringify(users, null, 4));
+            res.status(200).send("Successfully deposited cash money");
+        }
+    } catch (err) {
+        console.error(err);
     }
 });
 
