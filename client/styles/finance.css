@@ -18,10 +18,10 @@
     padding: 0.5rem;
 }
 
-#accountBalanceChartContainer {
+/* #accountBalanceChartContainer {
     width: 50%;
     align-self: center;
-}
+} */
 
 #accountBalanceInfo {
     display: flex;
