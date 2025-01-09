@@ -15,6 +15,18 @@
                 {
                     "date_unix": "1736300000",
                     "amount_usd": 2.50
+                },
+                {
+                    "date_unix": "1736300000",
+                    "amount_usd": 800
+                },
+                {
+                    "date_unix": "1736300000",
+                    "amount_usd": 1200
+                },
+                {
+                    "date_unix": "1736300000",
+                    "amount_usd": 128.32
                 }
             ],
             "expenses": {
