@@ -1,19 +1,30 @@
 [
     {
+        "session_id": "496f78d5-6d26-436d-9baf-f08fd4151601",
+        "id": "e7f850ce-7245-4f6a-95b7-d059eac29a2e",
         "email": "email@email.com",
         "username": "Default",
-        "password": "password"
-    },
-    {
-        "email": "asd@email.com",
-        "username": "asd",
-        "password": "asd",
-        "id": "9cdf816b-98b5-4145-a3a7-35e4774bac9a"
-    },
-    {
-        "email": "skibidi@email.com",
-        "username": "Skibidi Sigma",
-        "password": "toilet",
-        "id": "22c02113-5c7a-4a73-b9ed-7587a9c7ffe9"
+        "password": "password",
+        "finance_account": {
+            "balance_usd": 6391.84,
+            "income_sources": [
+                {
+                    "date_unix": "1736391106",
+                    "amount_usd": 250
+                }
+            ],
+            "expenses": [
+                {
+                    "date_unix": "1736243506",
+                    "category": "idk bruh",
+                    "amount_usd": 500
+                },
+                {
+                    "date": "1736157106",
+                    "category": "idk bruh",
+                    "amount_usd": 102.93
+                }
+            ]
+        }
     }
 ]
