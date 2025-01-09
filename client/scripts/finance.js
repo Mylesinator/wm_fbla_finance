@@ -18,7 +18,6 @@ function makeChartData(label, data) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-
     let request = await fetch(`/users/auth-user/${localStorage.auth}`);
     let request_json = await request.json();
     let finance_account = request_json.finance_account;
