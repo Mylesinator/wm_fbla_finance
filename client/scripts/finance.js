@@ -6,19 +6,41 @@ function idToCtx(id) {
 document.addEventListener("DOMContentLoaded", async () => {
 
     let data = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Savings', 'Investments', 'Cash'],
         datasets: [{
-            data: [12, 19, 3, 5, 2, 3],
+            data: [50, 30, 20],
+            backgroundColor: ['#4caf50', '#2196f3', '#ff9800'],
         }]
+    }
+
+    const options = {
+        responsive: false,
     }
     
     new Chart(idToCtx('accountBalanceChart'), {
         type: 'doughnut',
-        data: data
+        data: data,
+        // options: options
     });
 
     new Chart(idToCtx('totalIncomeChart'), {
         type: 'bar',
-        data: data
+        data: data,
+        // options: options
     });
+
+    new Chart(idToCtx('foodChart'), {
+        type: 'doughnut',
+        data: data,
+    });
+
+    new Chart(idToCtx('transportChart'), {
+        type: 'doughnut',
+        data: data,
+    });
+
+    let incomeItems = document.getElementById("incomeItems");
+    data.labels.forEach((value,index) => {
+        incomeItems.innerHTML += `<p>${value}: $${data.datasets[0].data[index]}</p>`;
+    })
 });
