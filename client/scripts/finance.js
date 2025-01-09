@@ -38,4 +38,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         type: 'doughnut',
         data: data,
     });
+
+    let incomeItems = document.getElementById("incomeItems");
+    data.labels.forEach((value,index) => {
+        incomeItems.innerHTML += `<p>${value}: $${data.datasets[0].data[index]}</p>`;
+    })
 });

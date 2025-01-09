@@ -16,7 +16,6 @@
     flex-direction: row;
     gap: 1rem;
     padding: 0.5rem;
-    flex: 1;
 }
 
 #accountBalanceChartContainer {
@@ -25,6 +24,12 @@
 }
 
 #accountBalanceInfo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#incomeItems {
     display: flex;
     flex-direction: column;
     flex: 1;
