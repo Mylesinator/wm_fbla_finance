@@ -6,25 +6,39 @@
         "username": "Default",
         "password": "password",
         "finance_account": {
-            "balance_usd": 6391.84,
+            "balance_usd": 252.50,
             "income_sources": [
                 {
                     "date_unix": "1736391106",
                     "amount_usd": 250
-                }
-            ],
-            "expenses": [
-                {
-                    "date_unix": "1736243506",
-                    "category": "idk bruh",
-                    "amount_usd": 500
                 },
                 {
-                    "date": "1736157106",
-                    "category": "idk bruh",
-                    "amount_usd": 102.93
+                    "date_unix": "1736300000",
+                    "amount_usd": 2.50
                 }
-            ]
+            ],
+            "expenses": {
+                "transportation": [
+                    {
+                        "date_unix": "1736243506",
+                        "amount_usd": 500
+                    },
+                    {
+                        "date_unix": "1736157106",
+                        "amount_usd": 102.93
+                    }
+                ],
+                "child_support": [
+                    {
+                        "date_unix": "1736000000",
+                        "amount_usd": 0.99
+                    },
+                    {
+                        "date_unix": "1730000000",
+                        "amount_usd": 0.25
+                    }
+                ]
+            }
         }
     }
 ]
