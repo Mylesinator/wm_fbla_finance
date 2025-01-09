@@ -11,7 +11,7 @@ function makeChartData(label, data) {
     return {
         labels: label,
         datasets: [{
-            
+            label: "Total",
             data: data,
         }]
     }
