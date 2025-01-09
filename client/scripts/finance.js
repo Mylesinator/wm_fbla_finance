@@ -3,44 +3,55 @@ function idToCtx(id) {
     return canvas.getContext('2d');
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+function sum(array) {
+    return array.reduce((a,b)=>{return a+b}, 0).toFixed(2);
+}
 
-    let data = {
-        labels: ['Savings', 'Investments', 'Cash'],
+function makeChartData(label, data) {
+    return {
+        labels: label,
         datasets: [{
-            data: [50, 30, 20],
-            backgroundColor: ['#4caf50', '#2196f3', '#ff9800'],
+            data: data,
         }]
     }
+}
 
-    const options = {
-        responsive: false,
-    }
-    
-    new Chart(idToCtx('accountBalanceChart'), {
-        type: 'doughnut',
-        data: data,
-        // options: options
-    });
+document.addEventListener("DOMContentLoaded", async () => {
+
+    let request = await fetch(`/users/auth-user/${localStorage.auth}`);
+    let request_json = await request.json();
+    let finance_account = request_json.finance_account;
+    let expenses = finance_account.expenses;
+    let income = finance_account.income_sources;
+
+    let expenselabels = Object.keys(expenses);
+    let expenseData = expenselabels.map(label => expenses[label].map(i=>i.amount_usd)).flat();
+    let expenselabelData = expenselabels.map(label => sum(expenses[label].map(i=>i.amount_usd)));
+    let incomeData = income.map(i=>i.amount_usd);
+    let incomelabels = Object.keys(income);
+    let totalData = [expenseData.map(i=>i*-1),incomeData].flat();
+    console.log(totalData);
 
     new Chart(idToCtx('totalIncomeChart'), {
-        type: 'bar',
-        data: data,
-        // options: options
+        type: 'line',
+        data: makeChartData(incomelabels, incomeData),
     });
 
-    new Chart(idToCtx('foodChart'), {
+    new Chart(idToCtx('totalExpensesChart'), {
         type: 'doughnut',
-        data: data,
+        data: makeChartData(expenselabels, expenselabelData),
     });
 
-    new Chart(idToCtx('transportChart'), {
-        type: 'doughnut',
-        data: data,
-    });
+    // new Chart(idToCtx('transportChart'), {
+    //     type: 'doughnut',
+    //     data: data,
+    // });
+
+    let balanceItems = document.getElementById("accountBalance");
+    balanceItems.innerHTML = `<p>$${sum(totalData)}</p>`;
 
     let incomeItems = document.getElementById("incomeItems");
-    data.labels.forEach((value,index) => {
-        incomeItems.innerHTML += `<p>${value}: $${data.datasets[0].data[index]}</p>`;
+    incomeData.forEach((i) => {
+        incomeItems.innerHTML += `<p>$${i}</p>`;
     })
 });

@@ -43,7 +43,7 @@
                 "child_support": [
                     {
                         "date_unix": "1736000000",
-                        "amount_usd": 0.99
+                        "amount_usd": 1000
                     },
                     {
                         "date_unix": "1730000000",
