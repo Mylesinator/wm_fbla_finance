@@ -3,14 +3,15 @@
     flex-direction: column;
     border-radius: 0.5rem;
     border: 0.1rem solid black;
-    padding: 2rem;
-    min-height: 50%;
+    min-height: 100%;
     flex: 1;
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
 .row {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
     gap: 1rem;
