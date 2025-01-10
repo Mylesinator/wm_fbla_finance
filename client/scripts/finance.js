@@ -7,8 +7,8 @@ function sum(array) {
     return array.reduce((a,b)=>{return a+b}, 0).toFixed(2);
 }
 
-function datesort(array) {
-    return array.sort((a,b) => a.unix_date - b.unix_date);
+function unixToDate(num) {
+    return new Date(num * 1000).toLocaleDateString();
 }
 
 function makeChartData(label, data) {
@@ -28,14 +28,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     let {expenses, income_sources: income } = finance_account;
 
     let expenselabels = Object.keys(expenses);
-    let expenseData = expenselabels.map(label => datesort(expenses[label]).map(i=>i.amount_usd));
+    let expenseData = expenselabels.map(label => expenses[label].map(i=>i.amount_usd));
     let expenselabelData = expenseData.map(item => sum(item));
-    console.log({expenses, expenseData, expenselabelData});
+    let expenseDataTime = expenselabels.flatMap(label => expenses[label].flatMap(i=>i.date_unix));
+    console.log({expenses, expenseData, expenselabelData, expenseDataTime});
     
     let incomelabels = Object.keys(income);
-    let incomeData = datesort(income).map(i=>i.amount_usd);
-    console.log({income, incomeData, incomelabels});
+    let incomeData = income.map(i=>i.amount_usd);
+    let incomeDataTime = income.map(i=>i.date_unix);
+    console.log({income, incomeData, incomelabels, incomeDataTime});
     
+
     let totalData = [expenseData.flat().map(i=>-i),incomeData].flat();
     console.log(totalData);
 
@@ -49,12 +52,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         data: makeChartData(expenselabels, expenselabelData),
     });
 
-    let balanceItems = document.getElementById("accountBalance");
+    let temp = {datasets: expenselabels.map(category => { expenses[category]; return {label, data} })}
+    console.log(temp);
+    // new Chart(idToCtx('expensesChart'), {
+    //     type: 'line',
+    //     data: temp
+    // });
 
-    balanceItems.innerHTML += `<tr>$${sum(totalData)}</tr>`;
+    let balanceItems = document.getElementById("accountBalance");
+    balanceItems.innerHTML += "<tr><th>Transaction:</th><th>Date:</th></tr>";
+    let totalDataTime = [expenseDataTime, incomeDataTime].flat();
+    totalData.forEach((item, index) => {
+        balanceItems.innerHTML += `<tr><td>${item}</td><td>${unixToDate(totalDataTime[index])}</td></tr>`;
+    });
 
     let incomeItems = document.getElementById("incomeItems");
+    incomeItems.innerHTML += "<tr><th>Income</th></tr>";
     incomeData.forEach((i) => {
-        incomeItems.innerHTML += `<p>$${i}</p>`;
+        incomeItems.innerHTML += `<tr><td>$${i}</td></tr>`;
     })
 });

@@ -96,3 +96,15 @@ input {
     border-radius: 0.25rem;
     border: none;
 }
+
+table {
+    justify-self: center;
+}
+
+th, td {
+    outline: 0.1rem solid black;
+}
+
+td {
+    padding: 0.25rem;
+}
