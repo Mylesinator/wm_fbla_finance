@@ -23,3 +23,11 @@
     flex-direction: column;
     flex: 1;
 }
+
+.accountTable {
+    display: flex;
+    flex-direction: column;
+    max-height: 40vh;
+    width: 100%;
+    overflow-y: scroll;
+}

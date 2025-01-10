@@ -111,3 +111,14 @@ th, td {
 td {
     padding: 0.25rem;
 }
+
+button {
+    width: fit-content;
+    padding: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    border: none;
+    background-color: #2749a8;
+    color: white;
+    border-radius: 0.25rem;
+}

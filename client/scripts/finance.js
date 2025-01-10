@@ -38,8 +38,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     let incomeDataTime = income.map(i=>i.date_unix);
     console.log({income, incomeData, incomelabels, incomeDataTime});
     
-
-    let totalData = [expenseData.flat().map(i=>-i),incomeData].flat();
+    let totalDataTime = expenseDataTime.concat(incomeDataTime);
+    let totalData = expenseData.flat().map(i=>-i).concat(incomeData);
     console.log(totalData);
 
     new Chart(idToCtx('totalIncomeChart'), {
@@ -52,16 +52,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         data: makeChartData(expenselabels, expenselabelData),
     });
 
-    let temp = {datasets: expenselabels.map(category => { expenses[category]; return {label, data} })}
-    console.log(temp);
-    // new Chart(idToCtx('expensesChart'), {
-    //     type: 'line',
-    //     data: temp
-    // });
+    let expensesChartData = {
+        labels: expenses[expenselabels[0]].map((_, i) => i),
+        datasets: expenselabels.map(category => ({
+            label: category,
+            data: expenses[category].map(v => v.amount_usd),
+        }))
+    };
+    new Chart(idToCtx('expensesChart'), {
+        type: 'line',
+        data: expensesChartData
+    });
+
+    let balance = document.getElementById("Balance");
+    balance.textContent += `: $${sum(totalData)}`
 
     let balanceItems = document.getElementById("accountBalance");
     balanceItems.innerHTML += "<tr><th>Transaction:</th><th>Date:</th></tr>";
-    let totalDataTime = [expenseDataTime, incomeDataTime].flat();
     totalData.forEach((item, index) => {
         balanceItems.innerHTML += `<tr><td>${item}</td><td>${unixToDate(totalDataTime[index])}</td></tr>`;
     });
