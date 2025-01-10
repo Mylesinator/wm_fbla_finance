@@ -7,6 +7,10 @@ function sum(array) {
     return array.reduce((a,b)=>{return a+b}, 0).toFixed(2);
 }
 
+function datesort(array) {
+    return array.sort((a,b) => a.unix_date - b.unix_date);
+}
+
 function makeChartData(label, data) {
     return {
         labels: label,
@@ -21,15 +25,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     let request = await fetch(`/users/auth-user/${localStorage.auth}`);
     let request_json = await request.json();
     let finance_account = request_json.finance_account;
-    let expenses = finance_account.expenses;
-    let income = finance_account.income_sources;
+    let {expenses, income_sources: income } = finance_account;
 
     let expenselabels = Object.keys(expenses);
-    let expenseData = expenselabels.map(label => expenses[label].map(i=>i.amount_usd)).flat();
-    let expenselabelData = expenselabels.map(label => sum(expenses[label].map(i=>i.amount_usd)));
-    let incomeData = income.map(i=>i.amount_usd);
+    let expenseData = expenselabels.map(label => datesort(expenses[label]).map(i=>i.amount_usd));
+    let expenselabelData = expenseData.map(item => sum(item));
+    console.log({expenses, expenseData, expenselabelData});
+    
     let incomelabels = Object.keys(income);
-    let totalData = [expenseData.map(i=>i*-1),incomeData].flat();
+    let incomeData = datesort(income).map(i=>i.amount_usd);
+    console.log({income, incomeData, incomelabels});
+    
+    let totalData = [expenseData.flat().map(i=>-i),incomeData].flat();
     console.log(totalData);
 
     new Chart(idToCtx('totalIncomeChart'), {
@@ -42,13 +49,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         data: makeChartData(expenselabels, expenselabelData),
     });
 
-    // new Chart(idToCtx('transportChart'), {
-    //     type: 'doughnut',
-    //     data: data,
-    // });
-
     let balanceItems = document.getElementById("accountBalance");
-    balanceItems.innerHTML = `<p>$${sum(totalData)}</p>`;
+
+    balanceItems.innerHTML += `<tr>$${sum(totalData)}</tr>`;
 
     let incomeItems = document.getElementById("incomeItems");
     incomeData.forEach((i) => {
