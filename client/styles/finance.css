@@ -18,18 +18,7 @@
     padding: 0.5rem;
 }
 
-/* #accountBalanceChartContainer {
-    width: 50%;
-    align-self: center;
-} */
-
 #accountBalanceInfo {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-#incomeItems {
     display: flex;
     flex-direction: column;
     flex: 1;
