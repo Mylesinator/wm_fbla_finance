@@ -84,9 +84,9 @@ footer {
 
 main {
     display: flex;
+    flex: 1;
     flex-direction: column;
     width: 100%;
-    flex: 1;
 }
 
 input {
@@ -94,7 +94,7 @@ input {
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     border-radius: 0.25rem;
-    border: none;
+    /* border: none; */
 }
 
 table {
@@ -107,4 +107,15 @@ th, td {
 
 td {
     padding: 0.25rem;
+}
+
+button {
+    width: fit-content;
+    padding: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    border: none;
+    background-color: #2749a8;
+    color: white;
+    border-radius: 0.25rem;
 }

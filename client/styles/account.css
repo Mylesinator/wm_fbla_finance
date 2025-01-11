@@ -1,4 +1,34 @@
-#account-info-container {
+#account-page-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.account-details-header {
+    display: flex;
+    width: 100%;
+}
+
+.income-form-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#form-container {
+    outline: 2px solid black;
+    border-radius: 0.5rem;
+    padding: 5rem;
+}
+
+#form-container > h1 {
+    margin-bottom: 1rem;
+}
+
+#addIncomeForm {
+    text-align: center;
 }

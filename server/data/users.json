@@ -6,27 +6,35 @@
         "username": "Default",
         "password": "password",
         "finance_account": {
-            "balance_usd": 252.50,
+            "balance_usd": "null50005000200200200200200200200",
             "income_sources": [
                 {
-                    "date_unix": "1736391106",
-                    "amount_usd": 250
+                    "date_unix": 1736554737029,
+                    "amount_usd": 200
                 },
                 {
-                    "date_unix": "1736300000",
-                    "amount_usd": 2.50
+                    "date_unix": 1736554737233,
+                    "amount_usd": 200
                 },
                 {
-                    "date_unix": "1736300000",
-                    "amount_usd": 800
+                    "date_unix": 1736554737375,
+                    "amount_usd": 200
                 },
                 {
-                    "date_unix": "1736300000",
-                    "amount_usd": 1200
+                    "date_unix": 1736554737509,
+                    "amount_usd": 200
                 },
                 {
-                    "date_unix": "1736300000",
-                    "amount_usd": 128.32
+                    "date_unix": 1736554737646,
+                    "amount_usd": 200
+                },
+                {
+                    "date_unix": 1736554740612,
+                    "amount_usd": 200
+                },
+                {
+                    "date_unix": 1736554740667,
+                    "amount_usd": 200
                 }
             ],
             "expenses": {
@@ -38,6 +46,18 @@
                     {
                         "date_unix": "1736157106",
                         "amount_usd": 102.93
+                    },
+                    {
+                        "date_unix": "1736304506",
+                        "amount_usd": 15.75
+                    },
+                    {
+                        "date_unix": "1736100506",
+                        "amount_usd": 60.3
+                    },
+                    {
+                        "date_unix": "1736053506",
+                        "amount_usd": 23.99
                     }
                 ],
                 "child_support": [
@@ -48,6 +68,62 @@
                     {
                         "date_unix": "1730000000",
                         "amount_usd": 0.25
+                    },
+                    {
+                        "date_unix": "1735800000",
+                        "amount_usd": 750
+                    },
+                    {
+                        "date_unix": "1735700000",
+                        "amount_usd": 300.5
+                    },
+                    {
+                        "date_unix": "1735500000",
+                        "amount_usd": 125.75
+                    }
+                ],
+                "groceries": [
+                    {
+                        "date_unix": "1736240000",
+                        "amount_usd": 150.6
+                    },
+                    {
+                        "date_unix": "1736150000",
+                        "amount_usd": 200.45
+                    },
+                    {
+                        "date_unix": "1736050000",
+                        "amount_usd": 78.99
+                    },
+                    {
+                        "date_unix": "1736000000",
+                        "amount_usd": 55
+                    },
+                    {
+                        "date_unix": "1735900000",
+                        "amount_usd": 89.1
+                    }
+                ],
+                "entertainment": [
+                    {
+                        "date_unix": "1736250000",
+                        "amount_usd": 50
+                    },
+                    {
+                        "date_unix": "1736200000",
+                        "amount_usd": 120
+                    },
+                    {
+                        "date_unix": "1736150000",
+                        "amount_usd": 90.5
+                    },
+                    {
+                        "date_unix": "1736100000",
+                        "amount_usd": 35
+                    },
+                    {
+                        "date_unix": "1736050000",
+                        "amount_usd": 20
                     }
                 ]
             }

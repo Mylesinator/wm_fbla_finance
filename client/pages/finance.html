@@ -4,16 +4,18 @@
     <div class="container">
         <div id="accountBalanceInfo">
             <h1>Account Balance</h1>
-            <h2>Balance</h2>
-            <table>
-                <tbody id="accountBalance"></tbody>
-            </table>
+            <h2 id="Balance">Balance</h2>
+            <div class="accountTable">
+                <table>
+                    <tbody id="accountBalance"></tbody>
+                </table>
+            </div>
         </div>
     </div>
     <div class="container">
         <h1>Total Income</h1>
         <div class="row" style="flex: 1;">
-            <div style="flex: 1;">
+            <div class="accountTable">
                 <table>
                     <tbody id="incomeItems"></tbody>
                 </table>
@@ -27,7 +29,9 @@
 <div class="row">
     <div class="container" style="max-width: 30%;">
         <h1>Accounts</h1>
-        <button type="submit">Update</button>
+        <div class="row">
+            <button type="submit">Update</button>
+        </div>
     </div>
     <div class="container">
         <h1>Total Expenses</h1>
