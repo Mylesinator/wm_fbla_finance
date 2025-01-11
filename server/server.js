@@ -152,9 +152,9 @@ app.post("/users/deposit/:token", async (req, res) => {
             const date = Date.now();
             const incomeSource = {
                 "date_unix": date,
-                "amount_usd": amount
+                "amount_usd": parseFloat(amount)
             }
-            
+
             account.balance_usd += amount;
             account.income_sources.push(incomeSource);
 

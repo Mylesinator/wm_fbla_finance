@@ -84,12 +84,9 @@ footer {
 
 main {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    flex-grow: 1;
-
-    width: 100%;
     flex: 1;
+    flex-direction: column;
+    width: 100%;
 }
 
 input {
@@ -97,7 +94,7 @@ input {
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     border-radius: 0.25rem;
-    border: none;
+    /* border: none; */
 }
 
 table {

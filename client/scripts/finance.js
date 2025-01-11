@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     let expenselabelData = expenseData.map(item => sum(item));
     let expenseDataTime = expenselabels.flatMap(label => expenses[label].flatMap(i=>i.date_unix));
     console.log({expenses, expenseData, expenselabelData, expenseDataTime});
-    
+
     let incomelabels = Object.keys(income);
     let incomeData = income.map(i=>i.amount_usd);
     let incomeDataTime = income.map(i=>i.date_unix);
     console.log({income, incomeData, incomelabels, incomeDataTime});
-    
+
     let totalDataTime = expenseDataTime.concat(incomeDataTime);
     let totalData = expenseData.flat().map(i=>-i).concat(incomeData);
     console.log(totalData);
