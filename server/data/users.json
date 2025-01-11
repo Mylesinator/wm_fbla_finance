@@ -6,11 +6,10 @@
         "username": "Default",
         "password": "password",
         "finance_account": {
-            "balance_usd": "null50005000200200200200200200200",
             "income_sources": [
                 {
                     "date_unix": 1736554737029,
-                    "amount_usd": 200
+                    "amount_usd": 250
                 },
                 {
                     "date_unix": 1736554737233,
@@ -18,111 +17,135 @@
                 },
                 {
                     "date_unix": 1736554737375,
-                    "amount_usd": 200
+                    "amount_usd": 800
                 },
                 {
                     "date_unix": 1736554737509,
-                    "amount_usd": 200
+                    "amount_usd": 1200
                 },
                 {
                     "date_unix": 1736554737646,
-                    "amount_usd": 200
+                    "amount_usd": 128.32
                 },
                 {
                     "date_unix": 1736554740612,
-                    "amount_usd": 200
+                    "amount_usd": 75
                 },
                 {
                     "date_unix": 1736554740667,
-                    "amount_usd": 200
+                    "amount_usd": 500.5
+                },
+                {
+                    "date_unix": 1710159610473,
+                    "amount_usd": 1025.75
+                },
+                {
+                    "date_unix": 1682236875961,
+                    "amount_usd": 300
+                },
+                {
+                    "date_unix": 1747394192419,
+                    "amount_usd": 450.1
+                },
+                {
+                    "date_unix": 1775695977715,
+                    "amount_usd": 600.25
+                },
+                {
+                    "date_unix": 1738769136853,
+                    "amount_usd": 50
+                },
+                {
+                    "date_unix": 1671024571820,
+                    "amount_usd": 10
                 }
             ],
             "expenses": {
                 "transportation": [
                     {
-                        "date_unix": "1736243506",
+                        "date_unix": 1710451766458,
                         "amount_usd": 500
                     },
                     {
-                        "date_unix": "1736157106",
+                        "date_unix": 1732803700659,
                         "amount_usd": 102.93
                     },
                     {
-                        "date_unix": "1736304506",
+                        "date_unix": 1639478487463,
                         "amount_usd": 15.75
                     },
                     {
-                        "date_unix": "1736100506",
+                        "date_unix": 1843762056106,
                         "amount_usd": 60.3
                     },
                     {
-                        "date_unix": "1736053506",
+                        "date_unix": 1745484966251,
                         "amount_usd": 23.99
                     }
                 ],
                 "child_support": [
                     {
-                        "date_unix": "1736000000",
+                        "date_unix": 1820861804543,
                         "amount_usd": 1000
                     },
                     {
-                        "date_unix": "1730000000",
+                        "date_unix": 1871205974379,
                         "amount_usd": 0.25
                     },
                     {
-                        "date_unix": "1735800000",
+                        "date_unix": 1854179230276,
                         "amount_usd": 750
                     },
                     {
-                        "date_unix": "1735700000",
+                        "date_unix": 1678818486690,
                         "amount_usd": 300.5
                     },
                     {
-                        "date_unix": "1735500000",
+                        "date_unix": 1593498443451,
                         "amount_usd": 125.75
                     }
                 ],
                 "groceries": [
                     {
-                        "date_unix": "1736240000",
+                        "date_unix": 1811895014676,
                         "amount_usd": 150.6
                     },
                     {
-                        "date_unix": "1736150000",
+                        "date_unix": 1577421125543,
                         "amount_usd": 200.45
                     },
                     {
-                        "date_unix": "1736050000",
+                        "date_unix": 1821963910005,
                         "amount_usd": 78.99
                     },
                     {
-                        "date_unix": "1736000000",
+                        "date_unix": 1778599937821,
                         "amount_usd": 55
                     },
                     {
-                        "date_unix": "1735900000",
+                        "date_unix": 1879773843954,
                         "amount_usd": 89.1
                     }
                 ],
                 "entertainment": [
                     {
-                        "date_unix": "1736250000",
+                        "date_unix": 1576500980252,
                         "amount_usd": 50
                     },
                     {
-                        "date_unix": "1736200000",
+                        "date_unix": 1690364773965,
                         "amount_usd": 120
                     },
                     {
-                        "date_unix": "1736150000",
+                        "date_unix": 1809341488560,
                         "amount_usd": 90.5
                     },
                     {
-                        "date_unix": "1736100000",
+                        "date_unix": 1586980858298,
                         "amount_usd": 35
                     },
                     {
-                        "date_unix": "1736050000",
+                        "date_unix": 1725524607782,
                         "amount_usd": 20
                     }
                 ]
