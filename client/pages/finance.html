@@ -1,5 +1,6 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/regression"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
 <script src="scripts/finance.js"></script>
 <div class="row">
     <div class="container">
@@ -15,7 +16,6 @@
     </div>
     <div class="container">
         <h1>Total Income</h1>
-        <button onclick="toggleTable('incomeItems')">Toggle Income Table</button>
         <div class="row" style="flex: 1;">
             <div class="accountTable" id="incomeTableContainer">
                 <table>
@@ -26,7 +26,11 @@
             <div style="flex: 1;">
                 <canvas id="totalIncomeChart"></canvas>
             </div>
+            <div style="flex: 1;">
+                <canvas id="incomePieChart"></canvas>
+            </div>
         </div>
+        <button onclick="toggleTable('incomeItems')">Toggle Income Table</button>
     </div>
 </div>
 <div class="row">
@@ -38,7 +42,6 @@
     </div>
     <div class="container">
         <h1>Total Expenses</h1>
-        <button onclick="toggleTable('expensesItems')">Toggle Expenses Table</button>
         <div class="row">
             <div class="accountTable" id="expensesTableContainer">
                 <table>
@@ -49,6 +52,10 @@
             <div style="flex: 1;">
                 <canvas id="totalExpensesChart"></canvas>
             </div>
+            <div style="flex: 1;">
+                <canvas id="expensesPieChart"></canvas>
+            </div>
         </div>
+        <button onclick="toggleTable('expensesItems')">Toggle Expenses Table</button>
     </div>
 </div>

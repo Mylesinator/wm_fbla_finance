@@ -8,56 +8,79 @@
         "finance_account": {
             "income_sources": [
                 {
+                    "category": "merit_scholarship",
                     "date_unix": 1736554737029,
                     "amount_usd": 250
                 },
                 {
+                    "category": "merit_scholarship",
+                    "date_unix": 1737159537029,
+                    "amount_usd": 800
+                },
+                {
+                    "category": "merit_scholarship",
+                    "date_unix": 1737764337029,
+                    "amount_usd": 128.32
+                },
+                {
+                    "category": "merit_scholarship",
+                    "date_unix": 1738369137029,
+                    "amount_usd": 1025.75
+                },
+                {
+                    "category": "merit_scholarship",
+                    "date_unix": 1738973937029,
+                    "amount_usd": 450.1
+                },
+                {
+                    "category": "merit_scholarship",
+                    "date_unix": 1739578737029,
+                    "amount_usd": 50
+                },
+                {
+                    "category": "need_based_scholarship",
                     "date_unix": 1736554737233,
                     "amount_usd": 200
                 },
                 {
-                    "date_unix": 1736554737375,
-                    "amount_usd": 800
+                    "category": "need_based_scholarship",
+                    "date_unix": 1737159537233,
+                    "amount_usd": 75
                 },
                 {
+                    "category": "need_based_scholarship",
+                    "date_unix": 1737764337233,
+                    "amount_usd": 300
+                },
+                {
+                    "category": "need_based_scholarship",
+                    "date_unix": 1738369137233,
+                    "amount_usd": 10
+                },
+                {
+                    "category": "need_based_scholarship",
+                    "date_unix": 1738973937233,
+                    "amount_usd": 150
+                },
+                {
+                    "category": "sports_scholarship",
                     "date_unix": 1736554737509,
                     "amount_usd": 1200
                 },
                 {
-                    "date_unix": 1736554737646,
-                    "amount_usd": 128.32
-                },
-                {
-                    "date_unix": 1736554740612,
-                    "amount_usd": 75
-                },
-                {
-                    "date_unix": 1736554740667,
+                    "category": "sports_scholarship",
+                    "date_unix": 1737159537509,
                     "amount_usd": 500.5
                 },
                 {
-                    "date_unix": 1710159610473,
-                    "amount_usd": 1025.75
-                },
-                {
-                    "date_unix": 1682236875961,
-                    "amount_usd": 300
-                },
-                {
-                    "date_unix": 1747394192419,
-                    "amount_usd": 450.1
-                },
-                {
-                    "date_unix": 1775695977715,
+                    "category": "sports_scholarship",
+                    "date_unix": 1737764337509,
                     "amount_usd": 600.25
                 },
                 {
-                    "date_unix": 1738769136853,
-                    "amount_usd": 50
-                },
-                {
-                    "date_unix": 1671024571820,
-                    "amount_usd": 10
+                    "category": "sports_scholarship",
+                    "date_unix": 1738369137509,
+                    "amount_usd": 700
                 }
             ],
             "expenses": [
@@ -160,6 +183,26 @@
                     "category": "entertainment",
                     "date_unix": 1725524607782,
                     "amount_usd": 20
+                },
+                {
+                    "category": "transportation",
+                    "date_unix": 1750000000000,
+                    "amount_usd": 45
+                },
+                {
+                    "category": "child_support",
+                    "date_unix": 1750000000001,
+                    "amount_usd": 500
+                },
+                {
+                    "category": "groceries",
+                    "date_unix": 1750000000002,
+                    "amount_usd": 100
+                },
+                {
+                    "category": "entertainment",
+                    "date_unix": 1750000000003,
+                    "amount_usd": 75
                 }
             ]
         }

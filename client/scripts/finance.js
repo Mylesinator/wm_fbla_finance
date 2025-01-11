@@ -62,47 +62,132 @@ document.addEventListener("DOMContentLoaded", async () => {
     let finance_account = request_json.finance_account;
     let { expenses, income_sources: income } = finance_account;
 
-    // Sort the data immediately after destructuring
-    const sortedIncomeData = sortByDate(income);
-    const sortedExpensesData = sortByDate(expenses);
-
     // Update the balance
     let balanceElement = document.getElementById("Balance");
-    balanceElement.textContent += `: $${sum(sortedIncomeData.map(i => i.amount_usd)) - sum(sortedExpensesData.map(i => i.amount_usd))}`;
+    balanceElement.textContent += `: $${(sum(income.map(i => i.amount_usd)) - sum(expenses.map(i => i.amount_usd))).toFixed(2)}`;
 
-    // Update the HTML content with sorted income data
+    // Update the HTML content with income data
     let balanceItems = document.getElementById("accountBalance");
-    balanceItems.innerHTML += "<tr><th>Transaction:</th><th>Date:</th></tr>";
-    sortedIncomeData.forEach((item) => {
-        balanceItems.innerHTML += `<tr><td>${item.amount_usd}</td><td>${unixToDate(item.date_unix)}</td></tr>`;
+    balanceItems.innerHTML += "<tr><th>Category</th><th>Transaction:</th><th>Date:</th></tr>";
+    income.forEach((item) => {
+        balanceItems.innerHTML += `<tr><td>${item.category}</td><td>${item.amount_usd}</td><td>${unixToDate(item.date_unix)}</td></tr>`;
     });
 
     let incomeItems = document.getElementById("incomeItems");
     incomeItems.innerHTML += "<tr><th>Income</th><th>Date</th></tr>";
-    sortedIncomeData.forEach((item) => {
+    income.forEach((item) => {
         incomeItems.innerHTML += `<tr><td>$${item.amount_usd}</td><td>${unixToDate(item.date_unix)}</td></tr>`;
     });
 
-    // Update the HTML content with sorted expenses data
+    // Update the HTML content with expenses data
     let expensesItems = document.getElementById("expensesItems");
     expensesItems.innerHTML += "<tr><th>Category</th><th>Amount</th><th>Date</th></tr>";
-    sortedExpensesData.forEach((item) => {
+    expenses.forEach((item) => {
         expensesItems.innerHTML += `<tr><td>${item.category}</td><td>$${item.amount_usd}</td><td>${unixToDate(item.date_unix)}</td></tr>`;
     });
 
-    // Update the charts with sorted data
+    // Prepare data for the total income graph and doughnut chart
+    const incomeByCategory = income.reduce((acc, item) => {
+        if (!acc[item.category]) {
+            acc[item.category] = [];
+        }
+        acc[item.category].push(item);
+        return acc;
+    }, {});
+
+    const incomeCategories = Object.keys(incomeByCategory);
+    const incomeCategorySums = incomeCategories.map(category => sum(incomeByCategory[category].map(item => item.amount_usd)));
+
+    // Update the total income graph with separated categories
+    const incomeChartData = incomeCategories.map(category => ({
+        label: category,
+        data: sortByDate(incomeByCategory[category]).map(item => ({ x: new Date(item.date_unix), y: item.amount_usd })),
+    }));
+
     new Chart(idToCtx('totalIncomeChart'), {
         type: 'line',
-        data: makeChartData(sortedIncomeData.map(i => unixToDate(i.date_unix)), sortedIncomeData.map(i => i.amount_usd)),
+        data: {
+            labels: income.map(item => new Date(item.date_unix)),
+            datasets: incomeChartData,
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    type: 'time',
+                    time: {
+                        unit: 'day'
+                    }
+                }
+            }
+        }
+    });
+
+    // Create a doughnut chart for the sum of each income category
+    new Chart(idToCtx('incomePieChart'), {
+        type: 'doughnut',
+        data: {
+            labels: incomeCategories,
+            datasets: [{
+                data: incomeCategorySums,
+                backgroundColor: incomeCategories.map((_, index) => `hsl(${index * 360 / incomeCategories.length}, 70%, 50%)`),
+            }]
+        },
         options: {
             responsive: true,
             maintainAspectRatio: false,
         }
     });
 
+    // Prepare data for the total expenses graph and doughnut chart
+    const expensesByCategory = expenses.reduce((acc, item) => {
+        if (!acc[item.category]) {
+            acc[item.category] = [];
+        }
+        acc[item.category].push(item);
+        return acc;
+    }, {});
+
+    const expenseCategories = Object.keys(expensesByCategory);
+    const expenseCategorySums = expenseCategories.map(category => sum(expensesByCategory[category].map(item => item.amount_usd)));
+
+    // Update the total expenses graph with separated categories
+    const expensesChartData = expenseCategories.map(category => ({
+        label: category,
+        data: sortByDate(expensesByCategory[category]).map(item => ({ x: new Date(item.date_unix), y: item.amount_usd })),
+    }));
+
     new Chart(idToCtx('totalExpensesChart'), {
         type: 'line',
-        data: makeChartData(sortedExpensesData.map(i => unixToDate(i.date_unix)), sortedExpensesData.map(i => i.amount_usd)),
+        data: {
+            labels: expenses.map(item => new Date(item.date_unix)),
+            datasets: expensesChartData,
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    type: 'time',
+                    time: {
+                        unit: 'day'
+                    }
+                }
+            }
+        }
+    });
+
+    // Create a doughnut chart for the sum of each expense category
+    new Chart(idToCtx('expensesPieChart'), {
+        type: 'doughnut',
+        data: {
+            labels: expenseCategories,
+            datasets: [{
+                data: expenseCategorySums,
+                backgroundColor: expenseCategories.map((_, index) => `hsl(${index * 360 / expenseCategories.length}, 70%, 50%)`),
+            }]
+        },
         options: {
             responsive: true,
             maintainAspectRatio: false,

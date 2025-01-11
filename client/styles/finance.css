@@ -59,8 +59,3 @@ table {
     top: 0;
     bottom: 0;
 }
-
-* {
-    transition: all 1s ease-in-out;
-    transition: width 0s linear;
-}
