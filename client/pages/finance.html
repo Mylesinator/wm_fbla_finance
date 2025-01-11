@@ -1,11 +1,13 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/regression"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
 <script src="scripts/finance.js"></script>
 <div class="row">
     <div class="container">
         <div id="accountBalanceInfo">
             <h1>Account Balance</h1>
             <h2 id="Balance">Balance</h2>
-            <div class="accountTable">
+            <div class="accountTable" style="min-width: 50%;">
                 <table>
                     <tbody id="accountBalance"></tbody>
                 </table>
@@ -15,15 +17,20 @@
     <div class="container">
         <h1>Total Income</h1>
         <div class="row" style="flex: 1;">
-            <div class="accountTable">
+            <div class="accountTable" id="incomeTableContainer">
                 <table>
                     <tbody id="incomeItems"></tbody>
                 </table>
+                <div class="resizer" id="incomeResizer"></div>
             </div>
-            <div style="width: 80%;">
+            <div style="flex: 1;">
                 <canvas id="totalIncomeChart"></canvas>
             </div>
+            <div style="flex: 1;">
+                <canvas id="incomePieChart"></canvas>
+            </div>
         </div>
+        <button onclick="toggleTable('incomeItems')">Toggle Income Table</button>
     </div>
 </div>
 <div class="row">
@@ -36,12 +43,19 @@
     <div class="container">
         <h1>Total Expenses</h1>
         <div class="row">
-            <div>
+            <div class="accountTable" id="expensesTableContainer">
+                <table>
+                    <tbody id="expensesItems"></tbody>
+                </table>
+                <div class="resizer" id="expensesResizer"></div>
+            </div>
+            <div style="flex: 1;">
                 <canvas id="totalExpensesChart"></canvas>
             </div>
-            <div>
-                <canvas id="expensesChart"></canvas>
+            <div style="flex: 1;">
+                <canvas id="expensesPieChart"></canvas>
             </div>
         </div>
+        <button onclick="toggleTable('expensesItems')">Toggle Expenses Table</button>
     </div>
 </div>
