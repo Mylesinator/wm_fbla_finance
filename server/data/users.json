@@ -81,6 +81,11 @@
                     "category": "sports_scholarship",
                     "date_unix": 1738369137509,
                     "amount_usd": 700
+                },
+                {
+                    "category": "skibidi_toilet_career",
+                    "date_unix": 1736809313510,
+                    "amount_usd": 6000
                 }
             ],
             "expenses": [
@@ -203,8 +208,14 @@
                     "category": "entertainment",
                     "date_unix": 1750000000003,
                     "amount_usd": 75
+                },
+                {
+                    "category": "skibidi_toilet",
+                    "date_unix": 1736809291384,
+                    "amount_usd": 5000
                 }
-            ]
+            ],
+            "balance_usd": "undefined6000"
         }
     }
 ]

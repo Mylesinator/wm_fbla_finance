@@ -19,16 +19,14 @@
     width: 100%;
 }
 
-#form-container {
+.form {
     outline: 2px solid black;
     border-radius: 0.5rem;
     padding: 5rem;
+    margin: 2rem;
+    text-align: center;
 }
 
 #form-container > h1 {
     margin-bottom: 1rem;
-}
-
-#addIncomeForm {
-    text-align: center;
 }
