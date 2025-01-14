@@ -69,7 +69,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Update the HTML content with income data
     let balanceItems = document.getElementById("accountBalance");
     balanceItems.innerHTML += "<tr><th>Category</th><th>Transaction:</th><th>Date:</th></tr>";
-    income.forEach((item) => {
+    let sortedIncomes = sortByDate(income);
+    sortedIncomes.forEach((item) => {
         balanceItems.innerHTML += `<tr><td>${item.category}</td><td>${item.amount_usd}</td><td>${unixToDate(item.date_unix)}</td></tr>`;
     });
 
@@ -82,7 +83,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Update the HTML content with expenses data
     let expensesItems = document.getElementById("expensesItems");
     expensesItems.innerHTML += "<tr><th>Category</th><th>Amount</th><th>Date</th></tr>";
-    expenses.forEach((item) => {
+    let sortedExpenses = sortByDate(expenses);
+    sortedExpenses.forEach((item) => {
         expensesItems.innerHTML += `<tr><td>${item.category}</td><td>$${item.amount_usd}</td><td>${unixToDate(item.date_unix)}</td></tr>`;
     });
 

@@ -6,14 +6,31 @@
     </div>
 
     <div class="income-form-row">
-        <div id="form-container">
-            <h1>Add Income Source</h1>
+        <div class="form">
+            <h1>Submit Income Source</h1>
 
             <form id="addIncomeForm">
-                <label for="amount">Amount (USD)</label> <br> <br>
-                <input type="number" id="amount" name="amount" required> <br> <br>
+                <label for="income-category">Category</label> <br> <br>
+                <input type="text" id="income-category" name="category" required> <br> <br>
+
+                <label for="income-amount">Amount (USD)</label> <br> <br>
+                <input type="number" id="income-amount" name="amount" required> <br> <br>
 
                 <button type="submit">Deposit</button>
+            </form>
+        </div>
+
+        <div class="form">
+            <h1>Submit Transaction / Expense Source</h1>
+
+            <form id="addExpenseForm">
+                <label for="expense-category">Category</label> <br> <br>
+                <input type="text" id="expense-category" name="category" required> <br> <br>
+
+                <label for="expense-amount">Amount (USD)</label> <br> <br>
+                <input type="number" id="expense-amount" name="amount" required> <br> <br>
+
+                <button type="submit">Submit</button>
             </form>
         </div>
     </div>

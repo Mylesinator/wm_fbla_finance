@@ -139,7 +139,7 @@ app.get("/users/auth-user/:token", async (req, res) => {
 app.post("/users/deposit/:token", async (req, res) => {
     try {
         const { token } = req.params;
-        const { amount } = req.body;
+        const { category, amount } = req.body;
 
         const data = await fs.readFile("data/users.json");
         const users = JSON.parse(data);
@@ -151,12 +151,43 @@ app.post("/users/deposit/:token", async (req, res) => {
 
             const date = Date.now();
             const incomeSource = {
+                "category": category,
                 "date_unix": date,
                 "amount_usd": parseFloat(amount)
             }
 
             account.balance_usd += amount;
             account.income_sources.push(incomeSource);
+
+            await fs.writeFile("data/users.json", JSON.stringify(users, null, 4));
+            res.status(200).send("Successfully deposited cash money");
+        }
+    } catch (err) {
+        console.error(err);
+    }
+});
+
+app.post("/users/submit-expense/:token", async (req, res) => {
+    try {
+        const { token } = req.params;
+        const { category, amount } = req.body;
+
+        const data = await fs.readFile("data/users.json");
+        const users = JSON.parse(data);
+        const userIndex = users.findIndex(u => u.session_id === token);
+        const user = users[userIndex];
+
+        if (user) {
+            const account = user.finance_account;
+
+            const date = Date.now();
+            const expense = {
+                "category": category,
+                "date_unix": date,
+                "amount_usd": parseFloat(amount)
+            }
+
+            account.expenses.push(expense);
 
             await fs.writeFile("data/users.json", JSON.stringify(users, null, 4));
             res.status(200).send("Successfully deposited cash money");
