@@ -48,4 +48,9 @@ async function renderUserElements() {
 
 document.addEventListener("DOMContentLoaded", () => {
     renderUserElements();
+
+    const brandIcon = document.getElementById("brand-icon");
+    brandIcon.addEventListener("click", () => {
+        window.location = "/";
+    });
 });
