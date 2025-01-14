@@ -3,13 +3,14 @@
 }
 
 #signup-id {
-    background-color: lightgray;
+    border: 0.1rem solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 5rem;
-    gap: 1rem;
+    gap: 0.5rem;
     border-radius: 2rem;
-    width: fit-content;
+    width: 50vw;
+    min-width: 30vw;
 }

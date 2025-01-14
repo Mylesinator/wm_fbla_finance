@@ -114,8 +114,8 @@ input {
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     border-radius: 0.25rem;
-    box-shadow: 0.1rem 0.1rem 0.5rem black;
-    border: none;
+    box-shadow: 0.1rem 0.1rem 0.5rem rgba(0,0,0,0.35);
+    border: black solid 0.1rem;
     outline: none;
 }
 
