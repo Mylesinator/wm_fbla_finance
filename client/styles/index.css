@@ -35,8 +35,9 @@ nav {
     align-items: center;
 }
 
-.brand-container > a > img {
+.brand-container > img {
     margin-right: 0.5rem;
+    cursor: pointer;
 }
 
 .links-container {
