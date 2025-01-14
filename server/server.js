@@ -59,6 +59,12 @@ app.get("/account", async (req, res) => {
     res.send(page);
 });
 
+app.get("/about_us", async (req, res) => {
+    const page = await getFormattedPage("about_us.html", "About Us ༼ つ ◕_◕ ༽つ");
+
+    res.send(page);
+});
+
 app.post("/users/login", async (req, res) => {
     try {
         const { email, password } = req.body;
