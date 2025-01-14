@@ -133,7 +133,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             labels: incomeCategories,
             datasets: [{
                 data: incomeCategorySums,
-                backgroundColor: incomeCategories.map((_, index) => `hsl(${index * 360 / incomeCategories.length}, 70%, 50%)`),
             }]
         },
         options: {
@@ -187,7 +186,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             labels: expenseCategories,
             datasets: [{
                 data: expenseCategorySums,
-                backgroundColor: expenseCategories.map((_, index) => `hsl(${index * 360 / expenseCategories.length}, 70%, 50%)`),
             }]
         },
         options: {
