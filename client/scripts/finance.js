@@ -11,7 +11,7 @@ function sortByDate(data) {
 
 // Function to sum an array of numbers
 function sum(arr) {
-    return arr.reduce((a, b) => a + b, 0);
+    return arr.reduce((a, b) => a + b, 0).toFixed(2);
 }
 
 // Function to get context by element ID
@@ -62,17 +62,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     let finance_account = request_json.finance_account;
     let { expenses, income_sources: income } = finance_account;
 
-    // Update the balance
-    let balanceElement = document.getElementById("Balance");
-    balanceElement.textContent += `: $${(sum(income.map(i => i.amount_usd)) - sum(expenses.map(i => i.amount_usd))).toFixed(2)}`;
-
     // Update the HTML content with income data
     let balanceItems = document.getElementById("accountBalance");
     balanceItems.innerHTML += "<tr><th>Category</th><th>Transaction:</th><th>Date:</th></tr>";
-    let sortedIncomes = sortByDate(income);
-    sortedIncomes.forEach((item) => {
+    let expenses_neg = expenses.map(obj => {return { ...obj, amount_usd: -obj.amount_usd }});
+    let sortedBalance = sortByDate(income.concat(expenses_neg));
+    sortedBalance.forEach((item) => {
         balanceItems.innerHTML += `<tr><td>${item.category}</td><td>${item.amount_usd}</td><td>${unixToDate(item.date_unix)}</td></tr>`;
     });
+
+    // Update the balance
+    let balanceElement = document.getElementById("Balance");
+    balanceElement.textContent += `: $${(sum(income.map(i => i.amount_usd)) - sum(expenses.map(i => i.amount_usd))).toFixed(2)}`;
 
     let incomeItems = document.getElementById("incomeItems");
     incomeItems.innerHTML += "<tr><th>Income</th><th>Date</th></tr>";
