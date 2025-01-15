@@ -114,7 +114,7 @@ main {
     flex: 1;
     flex-direction: column;
     width: 100%;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0)) center, url("https://files.oaiusercontent.com/file-GtQ3A3CdAq3VkjNviSsqt9?se=2025-01-15T02%3A02%3A56Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D61b1ba37-8f5a-42c9-9e84-c1b3a17775ef.webp&sig=hU6u2S994X2rJ4rhau84XVPT900oWqjffql7Lr1K5Ak%3D");
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0)) center, url("/assets/chatgpt_image.webp");
     background-size: cover;
     background-repeat: no-repeat;
 }
