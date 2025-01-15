@@ -1,12 +1,17 @@
+#home-image {
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0)) center, url("https://images.pexels.com/photos/5676744/pexels-photo-5676744.jpeg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
 .home-container {
     height: 100%;
     display: grid;
     gap: 5rem;
     color: white;
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0)) center, url("https://images.pexels.com/photos/5676744/pexels-photo-5676744.jpeg");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+    backdrop-filter: blur(3px);
 }
 
 .headers {
