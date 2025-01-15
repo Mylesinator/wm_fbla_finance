@@ -60,7 +60,13 @@ app.get("/account", async (req, res) => {
 });
 
 app.get("/about_us", async (req, res) => {
-    const page = await getFormattedPage("about_us.html", "About Us ༼ つ ◕_◕ ༽つ");
+    const page = await getFormattedPage("about_us.html", "About Us");
+
+    res.send(page);
+});
+
+app.get("/faq", async (req, res) => {
+    const page = await getFormattedPage("faq_page.html", "FAQ");
 
     res.send(page);
 });
