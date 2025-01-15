@@ -108,7 +108,6 @@ app.post("/users/signup", async (req, res) => {
         const user = users.find(u => u.email === email);
 
         const default_account = {
-            "balance_usd": 0,
             "income_sources": [],
             "expenses": []
         }
@@ -168,7 +167,6 @@ app.post("/users/deposit/:token", async (req, res) => {
                 "amount_usd": parseFloat(amount)
             }
 
-            account.balance_usd += amount;
             account.income_sources.push(incomeSource);
 
             await fs.writeFile("data/users.json", JSON.stringify(users, null, 4));

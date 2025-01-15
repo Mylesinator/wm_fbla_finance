@@ -81,26 +81,6 @@
                     "category": "sports_scholarship",
                     "date_unix": 1738369137509,
                     "amount_usd": 700
-                },
-                {
-                    "category": "fruity_pebbles",
-                    "date_unix": 1736904106869,
-                    "amount_usd": 25
-                },
-                {
-                    "category": "fruity_pebbles",
-                    "date_unix": 1736904306724,
-                    "amount_usd": 500
-                },
-                {
-                    "category": "fruity_pebbles",
-                    "date_unix": 1736921817825,
-                    "amount_usd": 500
-                },
-                {
-                    "category": "fruity_pebbles",
-                    "date_unix": 1736922288108,
-                    "amount_usd": 250
                 }
             ],
             "expenses": [
@@ -128,31 +108,6 @@
                     "category": "transportation",
                     "date_unix": 1745484966251,
                     "amount_usd": 23.99
-                },
-                {
-                    "category": "child_support",
-                    "date_unix": 1820861804543,
-                    "amount_usd": 1000
-                },
-                {
-                    "category": "child_support",
-                    "date_unix": 1871205974379,
-                    "amount_usd": 0.25
-                },
-                {
-                    "category": "child_support",
-                    "date_unix": 1854179230276,
-                    "amount_usd": 750
-                },
-                {
-                    "category": "child_support",
-                    "date_unix": 1678818486690,
-                    "amount_usd": 300.5
-                },
-                {
-                    "category": "child_support",
-                    "date_unix": 1593498443451,
-                    "amount_usd": 125.75
                 },
                 {
                     "category": "groceries",
@@ -210,11 +165,6 @@
                     "amount_usd": 45
                 },
                 {
-                    "category": "child_support",
-                    "date_unix": 1750000000001,
-                    "amount_usd": 500
-                },
-                {
                     "category": "groceries",
                     "date_unix": 1750000000002,
                     "amount_usd": 100
@@ -224,8 +174,7 @@
                     "date_unix": 1750000000003,
                     "amount_usd": 75
                 }
-            ],
-            "balance_usd": "undefined60002550000500250"
+            ]
         }
     }
 ]
