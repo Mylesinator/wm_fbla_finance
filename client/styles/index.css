@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
-    font-family: "Cascadia Code";
+    font-family: "Lato", serif;
+    font-style: normal;
     box-sizing: border-box;
 }
 
@@ -9,6 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
     min-height: 100vh;
 }
 
@@ -49,6 +54,8 @@ nav {
 }
 
 a {
+    font-family: "Roboto Mono", serif;
+    font-style: normal;
     text-decoration: none;
     color: white;
     text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.95);
@@ -107,6 +114,9 @@ main {
     flex: 1;
     flex-direction: column;
     width: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0)) center, url("https://files.oaiusercontent.com/file-GtQ3A3CdAq3VkjNviSsqt9?se=2025-01-15T02%3A02%3A56Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D61b1ba37-8f5a-42c9-9e84-c1b3a17775ef.webp&sig=hU6u2S994X2rJ4rhau84XVPT900oWqjffql7Lr1K5Ak%3D");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 input {

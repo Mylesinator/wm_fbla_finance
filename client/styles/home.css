@@ -1,13 +1,13 @@
 .home-container {
     height: 100%;
     display: grid;
-    grid-template-rows: 3fr 1fr;
+    grid-template-rows: 1fr, 3fr, 1fr;
     grid-template-areas:
+        ''
         'header' 'header' 'header'
         'content' 'content' 'content';
     gap: 5rem;
     color: white;
-    background-color: rgba(0, 0, 0, 1);
 }
 
 .headers {

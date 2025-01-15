@@ -3,13 +3,16 @@
 }
 
 #login-id {
-    background-color: lightgray;
+    background-color: #fff;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 5rem;
     gap: 1rem;
-    border-radius: 2rem;
-    width: fit-content;
+    width: 50vw;
+    border-radius: 1rem;
+    border: 0.3rem solid black;
+    min-width: 30vw;
 }

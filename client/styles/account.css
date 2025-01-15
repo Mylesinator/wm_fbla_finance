@@ -25,6 +25,8 @@
     padding: 5rem;
     margin: 2rem;
     text-align: center;
+    background-color: white;
+    color: black;
 }
 
 .form > h1 {

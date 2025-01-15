@@ -81,6 +81,16 @@
                     "category": "sports_scholarship",
                     "date_unix": 1738369137509,
                     "amount_usd": 700
+                },
+                {
+                    "category": "fruity_pebbles",
+                    "date_unix": 1736904106869,
+                    "amount_usd": 25
+                },
+                {
+                    "category": "fruity_pebbles",
+                    "date_unix": 1736904306724,
+                    "amount_usd": 500
                 }
             ],
             "expenses": [
@@ -205,7 +215,7 @@
                     "amount_usd": 75
                 }
             ],
-            "balance_usd": "undefined6000"
+            "balance_usd": "undefined60002550000"
         }
     }
 ]

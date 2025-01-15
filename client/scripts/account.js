@@ -1,3 +1,8 @@
+// send users back to the home page if they're not logged in
+if (!localStorage.getItem("auth")) {
+    window.location = "/"
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const incomeForm = document.getElementById("addIncomeForm");
     const expenseForm = document.getElementById("addExpenseForm");

@@ -1,3 +1,8 @@
+// send users back to the home page if they're not logged in
+if (!localStorage.getItem("auth")) {
+    window.location = "/"
+}
+
 // Function to convert Unix timestamp to readable date
 function unixToDate(unixTimestamp) {
     const date = new Date(unixTimestamp);

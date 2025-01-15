@@ -7,6 +7,8 @@
     flex: 1;
     padding: 2rem;
     box-sizing: border-box;
+    background-color: #fff;
+    color: black;
 }
 
 .row {
@@ -40,6 +42,7 @@
 table {
     width: 100%;
     table-layout: fixed;
+    color: black;
 }
 
 .hidden {
