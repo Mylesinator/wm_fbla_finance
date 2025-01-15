@@ -3,6 +3,11 @@ if (!localStorage.getItem("auth")) {
     window.location = "/"
 }
 
+function userLogout() {
+    localStorage.removeItem("auth");
+    window.location = "/";
+}
+
 // render certain elements if the user is logged in
 async function renderAccountElements() {
     const auth = localStorage.getItem("auth");
