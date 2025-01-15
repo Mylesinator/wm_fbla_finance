@@ -2,36 +2,48 @@
     <script src="scripts/account.js"></script>
 
     <div class="account-details-header">
-        <h1 id="account-name-display">PLACEHOLDER</h1>
+        <h1>Account Settings</h1>
     </div>
 
-    <div class="income-form-row">
-        <div class="form">
-            <h1>Submit Income Source</h1>
+    <div class="account-details-tabs">
+        <h2 id="profile-button" value="profile" class="section-button selected-section">Profile</h2>
+        <h2 id="input-forms-button" value="forms" class="section-button">Input Forms</h2>
+    </div>
 
-            <form id="addIncomeForm">
-                <label for="income-category">Category</label> <br> <br>
-                <input type="text" id="income-category" name="category" required> <br> <br>
-
-                <label for="income-amount">Amount (USD)</label> <br> <br>
-                <input type="number" id="income-amount" name="amount" required> <br> <br>
-
-                <button type="submit">Submit</button>
-            </form>
+    <div class="account-content">
+        <div class="account-profile">
+            <h1 id="account-name-display">Username:</h1>
+            <h1 id="account-email-display">Email:</h1>
         </div>
 
-        <div class="form">
-            <h1>Submit Expense Source</h1>
-
-            <form id="addExpenseForm">
-                <label for="expense-category">Category</label> <br> <br>
-                <input type="text" id="expense-category" name="category" required> <br> <br>
-
-                <label for="expense-amount">Amount (USD)</label> <br> <br>
-                <input type="number" id="expense-amount" name="amount" required> <br> <br>
-
-                <button type="submit">Submit</button>
-            </form>
+        <div class="input-forms hidden">
+            <div class="account-form">
+                <h1>Submit Income Source</h1>
+    
+                <form id="addIncomeForm">
+                    <label for="income-category">Category</label> <br> <br>
+                    <input type="text" id="income-category" name="category" required> <br> <br>
+    
+                    <label for="income-amount">Amount (USD)</label> <br> <br>
+                    <input type="number" id="income-amount" name="amount" required> <br> <br>
+    
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+    
+            <div class="account-form">
+                <h1>Submit Expense Source</h1>
+    
+                <form id="addExpenseForm">
+                    <label for="expense-category">Category</label> <br> <br>
+                    <input type="text" id="expense-category" name="category" required> <br> <br>
+    
+                    <label for="expense-amount">Amount (USD)</label> <br> <br>
+                    <input type="number" id="expense-amount" name="amount" required> <br> <br>
+    
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
