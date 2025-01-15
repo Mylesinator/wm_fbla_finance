@@ -38,7 +38,6 @@ async function renderUserElements() {
                 financesLink.classList.remove("hidden");
                 userInfo.classList.remove("hidden");
                 nameDisplay.textContent = user.username;
-                accountNameDisplay ? accountNameDisplay.textContent = `Account: ${user.username}` : null;
             }
         } catch (err) {
             console.error(err);

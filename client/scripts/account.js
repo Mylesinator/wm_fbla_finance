@@ -3,41 +3,96 @@ if (!localStorage.getItem("auth")) {
     window.location = "/"
 }
 
+// render certain elements if the user is logged in
+async function renderAccountElements() {
+    const auth = localStorage.getItem("auth");
+
+    if (auth) {
+        const accountNameDisplay = document.getElementById("account-name-display");
+        const accountEmailDisplay = document.getElementById("account-email-display");
+
+        try {
+            const response = await fetch(`/users/auth-user/${auth}`);
+
+            if (response.ok) {
+                const user = await response.json();
+
+                accountNameDisplay.textContent = `Username: ${user.username}`;
+                accountEmailDisplay.textContent = `Email: ${user.email}`;
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    const incomeForm = document.getElementById("addIncomeForm");
-    const expenseForm = document.getElementById("addExpenseForm");
+    renderAccountElements();
 
-    incomeForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
+    const sectionButtons = document.querySelectorAll(".section-button");
 
-        try {
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData.entries());
+    sectionButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const value = btn.getAttribute("value");
 
-            let response = await fetch(`/users/deposit/${localStorage.getItem("auth")}`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
-        } catch (err) {
-            console.error(err);
-        }
-    });
+            const profile = document.querySelector(".account-profile");
+            const forms = document.querySelector(".input-forms");
+            const profileBtn = document.getElementById("profile-button");
+            const formsBtn = document.getElementById("input-forms-button");
 
-    expenseForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        try {
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData.entries());
-
-            let response = await fetch(`/users/submit-expense/${localStorage.getItem("auth")}`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
-        } catch (err) {
-            console.error(err);
-        }
+            switch (value) {
+                case "profile":
+                    btn.classList.toggle("selected-section");
+                    profile.classList.toggle("hidden");
+                    forms.classList.toggle("hidden");
+                    formsBtn.classList.toggle("selected-section");
+                    break;
+                case "forms":
+                    btn.classList.toggle("selected-section");
+                    forms.classList.toggle("hidden");
+                    profile.classList.toggle("hidden");
+                    profileBtn.classList.toggle("selected-section");
+                    break;
+            }
+        });
     });
 });
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     const incomeForm = document.getElementById("addIncomeForm");
+//     const expenseForm = document.getElementById("addExpenseForm");
+
+//     incomeForm.addEventListener("submit", async (e) => {
+//         e.preventDefault();
+
+//         try {
+//             const formData = new FormData(e.target);
+//             const data = Object.fromEntries(formData.entries());
+
+//             let response = await fetch(`/users/deposit/${localStorage.getItem("auth")}`, {
+//                 method: "POST",
+//                 headers: { "Content-Type": "application/json" },
+//                 body: JSON.stringify(data)
+//             });
+//         } catch (err) {
+//             console.error(err);
+//         }
+//     });
+
+//     expenseForm.addEventListener("submit", async (e) => {
+//         e.preventDefault();
+
+//         try {
+//             const formData = new FormData(e.target);
+//             const data = Object.fromEntries(formData.entries());
+
+//             let response = await fetch(`/users/submit-expense/${localStorage.getItem("auth")}`, {
+//                 method: "POST",
+//                 headers: { "Content-Type": "application/json" },
+//                 body: JSON.stringify(data)
+//             });
+//         } catch (err) {
+//             console.error(err);
+//         }
+//     });
+// });
