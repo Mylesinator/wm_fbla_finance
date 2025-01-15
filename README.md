@@ -14,12 +14,18 @@ Neither of us are exactly "designers" per se, so we decided to go with a minimal
 
 We used a dark blue color as our primary color as people associate the color blue with a feeling of trust.
 
-All the images were taken from [Pexels](https://www.pexels.com/).
 The prompt indicated that the application was built for students, so we used an image of students on the home page.
 
 We switched up the tools we were using to build the UI last second so we used basic HTML, CSS, JavaScript to build out the page because it's what we're familiar with.
 
 In the future, we might change to the use of a UI framework like React, or Astro.
+
+
+### Image Sources
+
+All images and icons were taken from:
+- [Pexels](https://www.pexels.com/)
+- [Boxicons](https://boxicons.com/)
 
 
 # Functionality
