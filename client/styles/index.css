@@ -30,6 +30,7 @@ nav {
     box-shadow: 0.1rem 0.1rem 0.5rem black;
     color: white;
     width: 100%;
+    z-index: 100;
 }
 
 .brand-container {
@@ -79,6 +80,10 @@ a {
     align-items: center;
     user-select: none;
     -webkit-user-select: none;
+}
+
+#user-info {
+    padding-right: 0.5rem;
 }
 
 #user-info > a {
@@ -162,4 +167,23 @@ button {
 img {
     -webkit-filter: drop-shadow(0.1rem 0.1rem 0.2rem rgba(0,0,0,0.5));
     filter: drop-shadow(0.1rem 0.1rem 0.2rem rgba(0,0,0,0.5));
+}
+
+::-webkit-scrollbar {
+    width: 0.75rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #2749a8; 
 }
