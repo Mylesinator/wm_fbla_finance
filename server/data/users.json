@@ -91,6 +91,16 @@
                     "category": "fruity_pebbles",
                     "date_unix": 1736904306724,
                     "amount_usd": 500
+                },
+                {
+                    "category": "fruity_pebbles",
+                    "date_unix": 1736921817825,
+                    "amount_usd": 500
+                },
+                {
+                    "category": "fruity_pebbles",
+                    "date_unix": 1736922288108,
+                    "amount_usd": 250
                 }
             ],
             "expenses": [
@@ -215,7 +225,7 @@
                     "amount_usd": 75
                 }
             ],
-            "balance_usd": "undefined60002550000"
+            "balance_usd": "undefined60002550000500250"
         }
     }
 ]

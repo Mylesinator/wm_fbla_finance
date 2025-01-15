@@ -32,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const sectionButtons = document.querySelectorAll(".section-button");
 
     sectionButtons.forEach(btn => {
+        // content switcher for account details & input forms
+        // will definitely try to simplify later on
         btn.addEventListener("click", () => {
             const value = btn.getAttribute("value");
 
@@ -56,6 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // form stuff below
+
+    // probably could simplify this heavily or just remove it entirely
+    // but for the most part i just did it so it wouldn't refresh the page
 
     const incomeForm = document.getElementById("addIncomeForm");
     const expenseForm = document.getElementById("addExpenseForm");
