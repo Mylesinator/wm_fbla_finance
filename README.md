@@ -38,7 +38,7 @@ But aside from those, everything else was built in vanilla JavaScript.
 
 The application takes data submitted by users and generates graphs or summaries for the user to view and analyze how they're gaining or spending their money.
 
-## Features
+### Features
 
 Some of the current features we've implemented are:
 
