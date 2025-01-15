@@ -69,11 +69,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Update the HTML content with income data
     let balanceItems = document.getElementById("accountBalance");
-    balanceItems.innerHTML += "<tr><th>Category</th><th>Transaction:</th><th>Date:</th></tr>";
+    balanceItems.innerHTML += "<tr><th>Category</th><th>Transaction</th><th>Date</th></tr>";
     let expenses_neg = expenses.map(obj => {return { ...obj, amount_usd: -obj.amount_usd }});
     let sortedBalance = sortByDate(income.concat(expenses_neg));
     sortedBalance.forEach((item) => {
-        balanceItems.innerHTML += `<tr><td>${item.category}</td><td>${item.amount_usd}</td><td>${unixToDate(item.date_unix)}</td></tr>`;
+        balanceItems.innerHTML += `<tr><td>${item.category}</td><td>$${item.amount_usd}</td><td>${unixToDate(item.date_unix)}</td></tr>`;
     });
 
     // Update the balance
