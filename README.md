@@ -19,7 +19,7 @@ The prompt indicated that the application was built for students, so we used an 
 
 We switched up the tools we were using to build the UI last second so we used basic HTML, CSS, JavaScript to build out the page because it's what we're familiar with.
 
-In the future, we might change to the use of a UI framework like React, or Astro.
+In the future, we might change to the use of a UI framework like React, Tailwind, or Bootstrap.
 
 
 ### Image Sources
