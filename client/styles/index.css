@@ -74,7 +74,7 @@ a:hover {
     -webkit-user-select: none;
 }
 
-#user-info {
+#user-info > a {
     display: flex;
     align-items: center;
 }
