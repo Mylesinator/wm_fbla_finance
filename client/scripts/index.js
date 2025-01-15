@@ -25,7 +25,6 @@ async function renderUserElements() {
         const userLinks = document.getElementById("user-links");
         const financesLink = document.getElementById("finances-link");
         const nameDisplay = document.getElementById("name-display");
-        const accountNameDisplay = document.getElementById("account-name-display");
 
         try {
             const response = await fetch(`/users/auth-user/${auth}`);
