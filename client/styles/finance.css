@@ -1,5 +1,7 @@
 .finance-container {
-    /* put backgrounds here */
+    background-image: url("https://images.pexels.com/photos/2539076/pexels-photo-2539076.jpeg");
+    background-size: cover;
+    background-position: center bottom;
 }
 
 .container {
