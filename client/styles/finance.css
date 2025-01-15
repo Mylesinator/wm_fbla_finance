@@ -1,3 +1,7 @@
+.finance-container {
+    /* put backgrounds here */
+}
+
 .container {
     display: flex;
     flex-direction: column;
