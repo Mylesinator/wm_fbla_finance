@@ -4,6 +4,7 @@ This is a project we have built for FBLA Competition, below is an overview of wh
 
 The application was built so that the user could create an account and submit sources of income / expenses with categories and dates (haven't implemented submitting dates quite yet), and monitor how much they're spending or gaining over periods of time.
 
+To run locally, open the terminal and run `cd /server` then `npm i` and finally `npm run dev`. After running just open localhost:3000 in your browser.
 
 
 # Design Process
