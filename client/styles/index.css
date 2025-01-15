@@ -69,6 +69,7 @@ a {
     padding: 0.25rem;
     outline: 0.09rem solid white;
     border-radius: 0.35rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem rgba(0,0,0,0.75), inset 0.1rem 0.1rem 0.5rem rgba(0,0,0,0.5);
 }
 
 .user-display {
@@ -137,13 +138,17 @@ table {
 }
 
 th, td {
-    outline: 0.1rem solid black;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: white;
+    background-color: #000000;
+    border-radius: 0.25rem;
 }
 
 td {
+    background-color: transparent;
+    color: black;
     padding: 0.25rem;
 }
 
