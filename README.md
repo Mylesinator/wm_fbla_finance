@@ -42,6 +42,8 @@ The application takes data submitted by users and generates graphs or summaries 
 
 Some of the current features we've implemented are:
 
+- Creating accounts, signing in and out (log out button in account settings).
+
 - Graphs of total income & expense sources.
 
 - Total balance summary with a table showing income & expense sources.
