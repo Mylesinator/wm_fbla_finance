@@ -1,0 +1,39 @@
+#about-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem;
+    gap: 2rem;
+}
+
+.banner {
+    background-size: cover;
+    background-position: center center;
+    filter: saturate(2.5);
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0.5rem 0.5rem 1rem black;
+}
+
+#about-us-banner1 {
+    background-image: url("https://images.pexels.com/photos/30162005/pexels-photo-30162005/free-photo-of-solitude-under-tree-by-ancient-moroccan-wall.jpeg");
+}
+
+#about-us-banner2 {
+    background-image: url("https://images.pexels.com/photos/2253573/pexels-photo-2253573.jpeg");
+}
+
+#about-us-banner3 {
+    background-image: url("https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg");
+}
+
+.banner > h1 {
+    color: white;
+    font-size: 5rem;
+    text-align: center;
+    text-shadow: 0.1rem 0.1rem 0.2rem black;
+}

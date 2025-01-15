@@ -176,7 +176,7 @@ img {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #c0c1c0; 
 }
 
 /* Handle on hover */
