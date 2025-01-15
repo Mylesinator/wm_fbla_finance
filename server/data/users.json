@@ -176,5 +176,16 @@
                 }
             ]
         }
+    },
+    {
+        "session_id": "212b49b6-9952-4c01-8f6b-1d86d89eb139",
+        "id": "c21f862c-f2da-4cfb-abd8-10ebae921123",
+        "email": "toilet@sigma.com",
+        "username": "Skibidi",
+        "password": "pass",
+        "finance_account": {
+            "income_sources": [],
+            "expenses": []
+        }
     }
 ]
